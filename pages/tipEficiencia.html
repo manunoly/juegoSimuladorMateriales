@@ -1,0 +1,15 @@
+
+<div class="panel panel-default" style="margin-top: 2em;">
+    <div class="panel-heading"><strong>Eficiencia Energ&eacute;tica en Edificaciones</strong> <i class="fa fa-bolt pull-right" title="Eficiencia Energ&eacute;tica en Edificaciones"></i> </div> 
+    <div class="panel-body">
+
+        <div class="row" style="margin-left: 0em;">
+            <div ng-if="tipEEE.foto != ' '"><img class="pull-left img-responsive" style="padding-right: 1em; max-width:150px; max-height:130px;" src="{{tipEEE.foto}}" alt="{{tipEEE.titulo}}"></div>
+
+            <p class="text-justify" style="padding-right: 1em;"> <a> {{ tipEEE.titulo}}</a> <span ng-bind-html="tipEEE.descripcion"></span> </p>
+            <p class="pull-right row" style="padding-right: 15em;"> <strong> Autor: </strong><a> {{ tipEEE.autor}}</a> </p>
+        </div>
+        <div><a href="#edificaciones" class="pull-right fa fa-arrow-circle-o-right">Ver Todos</a></div>
+    </div>
+
+</div>

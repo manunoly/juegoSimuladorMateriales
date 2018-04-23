@@ -1,0 +1,104 @@
+<div ng-controller="aplicacionesController">
+    <!--<button class="row" ng-click="test()">test</button>-->
+    <form class="form-group row" role="form">
+        <div class="form-group col-sm-2">
+            <label for="region" class="label label-default"> Regi&oacute;n </label>
+            <select name="region" class="form-control" ng-model="seleccionRegion" ng-options="regionOpt as regionOpt.region for regionOpt in region"></select>
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="pared" class="label label-default"> Pared </label>
+            <select name="pared" class="form-control" ng-model="seleccionPared" ng-options="paredOpt as paredOpt.pared for paredOpt in pared"></select>
+        </div>
+        <div class="form-group  col-sm-2">
+            <label for="piso" class="label label-default"> Piso </label>
+            <select  class="form-control" name="piso" ng-model="seleccionPiso" ng-options="pisoOpt as pisoOpt.piso for pisoOpt in piso"></select>
+        </div>
+        <div class="form-group  col-sm-2">
+            <label for="piso" class="label label-default"> Techo </label>
+            <select  class="form-control" ng-model="seleccionTecho" ng-options="techoOpt as techoOpt.techo for techoOpt in techo"></select>
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="piso" class="label label-default"> Rango Horas </label>
+            <select  class="form-control" ng-model="seleccionRangoHoras" ng-options="rangoHorasOpt as rangoHorasOpt.rangoHoras for rangoHorasOpt in rangoHoras"></select>
+        </div>
+        <div class="form-group col-sm-2">
+            <button class="btn btn-primary" ng-click="simular()"> Simular </button>
+        </div>
+    </form>
+    <div ng-if="resultadosMostrar" class="container-fluid">
+        <br>
+        <table ng-table="vm.tableParams" class="table table-hover table-responsive" show-filter="true">
+            <th>
+                Region 
+            </th>
+            <th>
+                Pared 
+            </th>
+            <th>
+                Piso 
+            </th>
+            <th>
+                Techo 
+            </th>
+            <th>
+                Rango de Horas 
+            </th>
+            <th  class="hidden-xs">
+                Variables 
+            </th>
+            <th  class="visible-xs">
+                Var
+            </th>
+            <th>
+                Valor 
+            </th>
+            <tr ng-repeat="datos in resultadosMostrar">
+                <td title="Regi&aacute;n">
+                    {{datos.region}}
+                </td>
+                <td title="Pared">
+                    {{datos.pared}}
+                </td>
+                <td title="Piso">
+                    {{datos.piso}}
+                </td>
+                <td title="Techo">
+                    {{datos.techo}}
+                </td>
+                <td title="Rango de Hora">
+                    {{datos.rangoHoras}}
+                </td>                
+                <td class="hidden-xs">
+                    Temperatura Externa
+                    <hr>
+                    Temperatura Interior
+                    <hr>
+                    Consumo Sin Climatizaci&oacute;n
+                    <hr>
+                    Consumo Con Climatizaci&oacute;n
+                </td>
+                <td class="visible-xs">
+                    TE
+                    <hr>
+                    TI
+                    <hr>
+                    sinC
+                    <hr>
+                    conC
+                </td>
+                <td title="Resultados">
+                    {{datos.temperaturaExterna}}
+                    <hr>
+                    <b>{{datos.temperaturaInterior}}</b>
+                    <hr>
+                    {{datos.consumoSinClimatizacion}}
+                    <hr>
+                    {{datos.consumoConClimatizacion}}
+                    <hr>
+                </td>
+
+
+            </tr>
+        </table>
+    </div>
+</div>

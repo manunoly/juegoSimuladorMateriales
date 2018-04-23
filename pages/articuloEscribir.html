@@ -1,0 +1,51 @@
+<!-- home.html -->
+
+<div class="text-justify col-md-9">
+    <form class="form-inline panel panel-heading">
+        <div class="form-group">
+            <label for="redactarSel" class="label label-info">Redactar Contenido para un </label>
+            <select name="redactarSel" class="form-control" ng-model="redactarSel">
+                <option value="Articulo">Art&iacute;culo de EE</option>
+                <option value="Pregunta">Pregunta</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="contrasena" class="label label-info">Contraseña para Publicar</label>
+            <input name="contrasena" type="password" ng-model="contrasena" class="form-control">
+        </div>
+    </form>
+
+    <div id="edif-app" class="panel panel-default" style="margin-top: 2em;">
+        <div class="panel-heading"><strong>Redactar Contenido para Publicar</strong></div>
+        <div class="panel-body">
+            <label> {{Resultado}} </label> 
+            <form class="form-horizontal panel panel-heading">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="tituloE">T&iacute;tulo</label>
+                    <div class="col-md-9"><input name="tituloE" type="text" class="form-control" ng-model="tituloE" placeholder="T&iacute;tulo del Escrito"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="autorE">Autor</label>
+                    <div class="col-md-9"><input name="autorE" type="text" class="form-control" ng-model="autorE" placeholder="Nombre del Autor"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="imagenE">Url Imagen</label>
+                    <div class="col-md-9"><input name="imagenE" type="url" class="form-control" ng-model="imagenE" placeholder="Url Imagen Principal"></div>
+                </div>
+            </form>
+            <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent"></div>
+            <div class="form-group pull-right">
+                <button ng-click="salvarEscrito()" class="btn btn-primary">Guardar Escrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="lateral" class="col-md-3" ng-model="lateral">
+    <div ng-include src="'pages/miembros.html'"></div>
+    <div ng-include src="'pages/tipsEficiencia.html'"></div>
+    <div ng-include src="'pages/pregunta.html'"></div>
+
+</div>
+
+

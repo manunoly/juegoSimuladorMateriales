@@ -1,0 +1,14 @@
+
+<div class="panel panel-default" style="margin-top: 2em;">
+    <div class="panel-heading"> <strong> Preguntas y Debates </strong> <i class="fa fa-comments pull-right" title="Preguntas"></i></div>
+    <div class="panel-body">
+
+        <div class="row" style="margin-left: 0em;">
+            <div ng-if="pregunta.foto != ' '">
+                <img class="pull-left img-responsive" style="padding-right: 1em; " src="{{preguntaEEE.foto}}" alt="{{preguntaEEE.nombre}}">
+            </div>
+            <p class="text-justify" style="padding-right: 1em;"> <a class="text-capitalize"> {{ preguntaEEE.titulo}}</a> <span ng-bind-html="preguntaEEE.descripcion | limitTo: 120"></span></p>
+        </div>
+        <div><a href="#preguntas" class="pull-right fa fa-arrow-circle-o-right">Ver Todas</a></div>
+    </div>
+</div>

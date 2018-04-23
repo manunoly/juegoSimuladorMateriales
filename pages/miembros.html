@@ -1,0 +1,13 @@
+
+<div class="panel panel-default" style="margin-top: 2em;">
+    <div class="panel-heading"> <strong> Equipo de Trabajo </strong> <i class="fa fa-user pull-right" title="Equipo"></i></div>
+    <div class="panel-body" ng-repeat="miembro in equipo | limitTo:3">
+
+        <div class="row" style="margin-left: 0em;">
+            <img class="pull-left img-responsive" style="padding-right: 1em;  max-width:150px; max-height:130px;" src="{{miembro.foto}}" alt="{{miembro.nombre}}">
+
+            <p class="text-justify" style="padding-right: 1em;"> <a ng-href="#/equipo/{{miembro.id}}" class="text-capitalize"> {{ miembro.nombre}}</a> <br> <span ng-bind-html="miembro.descripcionCorta"></span> </p>
+        </div>
+        <div ng-if="$last"><a href="#equipo" class="pull-right fa fa-arrow-circle-o-right">Ver Todos</a></div>
+    </div>
+</div>

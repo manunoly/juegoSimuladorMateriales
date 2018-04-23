@@ -1,0 +1,8 @@
+
+<div ng-if="app =='TMY-Generator'">
+    <iframe ng-src="{{url}}" width="100%" height="130%" frameBorder="0"><a>http://192.168.0.73:3838/iner/tmy_genApp/</a></iframe>
+</div>
+
+<div ng-if="app =='ECOS-Generator'">
+    <div ng-include src="'pages/ecos.html'"></div>
+</div>

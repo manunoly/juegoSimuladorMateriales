@@ -1,0 +1,13 @@
+<!-- contact.html -->
+<div class="text-center col-md-9">
+
+<!--    <h2>Preguntas y Debates sobre Eficiencia Energ&eacute;tica</h2>
+    <p>{{ message}}</p>-->
+    <div ng-if="!idP"> <div ng-include src="'pages/pregutasTodas.html'"></div></div>
+    <div ng-if="idP"><div ng-include src="'pages/pregunta.html'"></div></div>
+</div>
+
+<div id="lateral" class="col-md-3" ng-model="lateral">
+    <div ng-include src="'pages/miembros.html'"></div>
+    <div ng-include src="'pages/tipsEficiencia.html'"></div>
+</div>

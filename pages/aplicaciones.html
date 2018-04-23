@@ -1,0 +1,22 @@
+<!-- aplicaciones.html -->
+<div class="text-justify col-md-9">
+    <div id="edif-app" class="panel panel-default" style="margin-top: 2em;">
+        <div class="panel-heading"><strong>Aplicaciones Desarrolladas en el proyecto Edificaciones del INER</strong></div>
+        <div class="panel-body" ng-repeat="aplicacion in aplicaciones">
+
+            <div class="row">
+                <img class="pull-left col-sm-3 col-md-2 col-lg-2 img-thumbnail" src="{{aplicacion.logo}}" alt="{{aplicacion.nombreApp}}">
+                <p class="col-sm-9" style="padding-right: 1em;"> <a ng-href="#/aplicaciones/{{aplicacion.siglas}}"> {{ aplicacion.siglas}}</a> {{aplicacion.descripcion}} </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<iframe ng-src="{{url}}" width="100%" height="130%" frameBorder="0"><a>http://192.168.0.73:3838/iner/tmy_genApp/</a></iframe>-->
+</div>
+<div id="lateral" class="col-md-3" ng-model="lateral">
+    <div ng-include src="'pages/miembros.html'"></div>
+    <div ng-include src="'pages/tipsEficiencia.html'"></div>
+    <!--<div ng-include src="'pages/pregunta.html'"></div>-->
+
+</div>

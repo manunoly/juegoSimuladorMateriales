@@ -1,0 +1,383 @@
+
+
+<div ng-controller="juegoController">
+
+    <div class="panel panel-body col-md-11" >
+        <div class="panel-body" style="">
+            <div class="animate-switch-container" ng-switch on="selection">
+                <div class="animate-switch" ng-switch-when="0">
+                    <div>
+                        <form class="form-horizontal text-center" style="padding-bottom: 10px;">
+                            <div class="form-group">
+                                <div class="col-sm-offset-1 col-sm-10">
+                                    <div class="">
+                                        <p class="h2 text-primary">
+                                            Bienvenidos al juego interactivo para aprender eficiencia energ&eacute;tica. 
+                                        </p>
+                                        <p class="text-justify col-md-offset-1 col-sm-10">
+                                            El objetivo del juego es que entiendas la importancia de una correcta selecci&oacute;n de los materiales de una vivienda dependiendo del lugar en la que se ubique.  La selecci&oacute;n de los materiales influir&aacute; directamente en el comfort t&eacute;rmico y en el consumo de energ&iacute;a de la vivienda en caso de ser climatizada.
+                                            <br>Tomando esto en cuenta, selecciona los materiales que crees m&aacute;s adecuados para el lugar donde quieras ubicar tu casa.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-1">
+                                    <label for="nombreJugador" class="col-sm-3 control-label">Nombre</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" ng-model="$parent.nombreJugador" class="form-control col-sm-9" id="nombreJugador" placeholder="Nombre del Jugador">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-1">
+                                    <label for="ocupacion" class="col-sm-3 control-label">Ocupaci&oacute;n</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-control col-sm-9" id='ocupacion' ng-model="$parent.ocupacion">
+                                            <option value=""></option>
+                                            <option value="Estudiante">Estudiante</option>
+                                            <option value="TrabajorPrivado">Trabajor Privado</option>
+                                            <option value="ServidorPublico">Servidor Publico</option>
+                                            <option value="Investigador">Investigador</option>
+                                            <option value="SinOcupacion">Sin Ocupaci&oacute;n</option>
+                                            <option value="Otro">Otro</option>
+
+
+                                        </select>
+                                        <!--<input type="text" ng-model="$parent.nombreCasa" class="form-control col-md-9" id="nombreCasa" placeholder="Nombre Casa Prototipo">-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-7 col-xs-offset-6" style="padding-top: 20px;">
+                                    <button class="btn btn-primary" ng-click="wizard(1)">Siguiente</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-when="1">
+                    <div style="padding-bottom: 15px" class="col-sm-12 text-center h2 row text-primary">¿En que Regi&oacute;n ubicar&iacute;as tu vivienda?</div>
+                    <div class="row">
+                        <div ng-repeat="regionO in region" >
+                            <div ng-class="{'col-sm-offset-2':$first}" class="col-sm-3" style="">
+                                <img  class="img-responsive col-md-12" style="position: relative;" src="{{regionO.foto}}">
+                                <label class="label label-default" style="font-size: 20; position: absolute; left: 30px; top: 0px;">
+                                    <input type="radio" ng-model="$parent.$parent.seleccionRegion" name="regionB" id="{{regionO.region}}" value="{{regionO.region}}"> {{regionO.region}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-10 col-xs-offset-6" style="padding-bottom: 35px; padding-top: 20px;">
+                        <button class="btn btn-primary" ng-click="wizard(2)">Siguiente</button>
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-when="2">
+                    <div style="padding-bottom: 15px" class="col-sm-offset-1 col-sm-11 text-center h2 row text-primary">¿Que tipo de Pared seleccionar&iacute;as para tu vivienda?</div>
+                    <div class="row">
+                        <div ng-repeat="paredO in pared" >
+                            <div ng-class="{'col-sm-offset-2':$first}" class="col-sm-3" style="">
+                                <img  class="img-responsive col-md-12" style="position: relative;" src="{{paredO.foto}}">
+                                <label class="label label-default" style="font-size: 20; position: absolute; left: 30px; top: 0px;">
+                                    <input type="radio" ng-model="$parent.$parent.seleccionPared" name="paredB" id="{{paredO.pared}}" value="{{paredO.pared}}"> {{paredO.pared}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-10 col-xs-offset-6" style="padding-bottom: 35px; padding-top: 20px;">
+                        <button class="btn btn-primary" ng-click="wizard(3)">Siguiente</button>
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-when="3">      
+                    <div style="padding-bottom: 15px" class="col-sm-offset-1 col-sm-11 text-center h2 row text-primary">¿Que tipo de Piso seleccionar&iacute;as para tu vivienda?</div>
+                    <div class="row">
+                        <div ng-repeat="pisoO in piso" >
+                            <div ng-class="{'col-sm-offset-2':$first}" class="col-sm-3" style="">
+                                <img  class="img-responsive col-md-12" style="position: relative;" src="{{pisoO.foto}}">
+                                <label class="label label-default" style="font-size: 20; position: absolute; left: 30px; top: 0px;">
+                                    <input type="radio" ng-model="$parent.$parent.seleccionPiso" name="pisoB" id="{{pisoO.piso}}" value="{{pisoO.piso}}"> {{pisoO.piso}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-10 col-xs-offset-6" style="padding-bottom: 35px; padding-top: 20px;">
+                        <button class="btn btn-primary" ng-click="wizard(4)">Siguiente</button>
+                    </div>
+                </div>
+                <div  class="animate-switch" ng-switch-when="4">
+                    <div style="padding-bottom: 15px" class="col-sm-offset-1 col-sm-11 text-center h2 row text-primary">¿Que tipo de Techo seleccionar&iacute;as para tu vivienda?</div>
+                    <div class="row">
+                        <div ng-repeat="techoO in techo" >
+                            <div ng-class="{'col-sm-offset-2':$first}" class="col-sm-3" style="">
+                                <img  class="img-responsive col-md-12" style="position: relative;" src="{{techoO.foto}}">
+                                <label class="label label-default" style="font-size: 20; position: absolute; left: 30px; top: 0px;">
+                                    <input type="radio" ng-model="$parent.$parent.seleccionTecho" name="techoB" id="{{techoO.techo}}" value="{{techoO.techo}}"> {{techoO.techo}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-10 col-xs-offset-6" style="padding-bottom: 35px; padding-top: 20px;">
+                        <button class="btn btn-primary" ng-click="wizard(5)">Siguiente</button>
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-when="5"> 
+                    <div style="padding-bottom: 15px" class="col-sm-12 text-center h2 row text-primary">¿En que rango de horas deseas simular?</div>
+                    <div class="row">
+                        <div ng-repeat="rangoHorasO in rangoHorasM" >
+                            <div ng-class="{'col-sm-offset-3':$first}" class="col-sm-3" style="">
+                                <img  class="img-responsive col-md-12" style="position: relative;" src="{{rangoHorasO.foto}}">
+                                <label class="label label-default" style="font-size: 20; position: absolute; left: 30px; top: 0px;">
+                                    <input type="radio" ng-model="$parent.$parent.seleccionRangoHoras" name="rangoHorasB" id="{{rangoHorasO.rangoHoras}}" value="{{rangoHorasO.rangoHoras}}"> {{rangoHorasO.rangoHoras}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-10 col-xs-offset-6" style="padding-bottom: 35px; padding-top: 20px;">
+                        <button class="btn btn-primary" ng-click="wizard(6)">Siguiente</button>
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-when="6"> 
+                    <div ng-if="!resultadosMostrar">
+                        <div style="padding-bottom: 15px" class="col-sm-11 text-center h2 row text-primary">Valores Seleccionados para la simulaci&oacute;n</div>
+                    </div>
+                    <div ng-class="{'col-sm-offset-2': !resultadosMostrar}">
+                        <div ng-if="!resultadosMostrar">
+                            <!--<div ng-class="{'col-sm-6': resultadosMostrar}">-->
+                            <div class="row">
+                                <div class="col-sm-3 h2 text-success">
+                                    Regi&oacute;n:
+                                </div>
+                                <div class="col-sm-3 h2 text-info">
+                                    {{seleccionRegion}}
+                                </div>
+                                <div class="col-sm-3 h2 text-success">
+                                    Pared:
+                                </div>
+                                <div class="col-sm-3 h2 text-info">
+                                    {{seleccionPared}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 h2 text-success">
+                                    Piso:
+                                </div>
+                                <div class="col-sm-3 h2 text-info">
+                                    {{seleccionPiso}}
+                                </div>
+                                <div class="col-sm-3 h2 text-success">
+                                    Techo:
+                                </div>
+                                <div class="col-sm-3 h2 text-info">
+                                    {{seleccionTecho}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 h2 text-success">
+                                    Rango de Horas:
+                                </div>
+                                <div class="col-sm-6 text-info h2">
+                                    {{seleccionRangoHoras}}
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="resultadosMostrar" ng-class="{'col-sm-10 col-sm-offset-2': resultadosMostrar}">
+                            <div class="col-xs-8">
+                                <img class="img-responsive" style="padding-top: 8em;" src="img/juego/casa.png">
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="row"> 
+                                    <p class="text-info text-center" style="font-size: 20px;"><strong> Techo </strong></p>   
+                                    <img class="img-responsive img-circle" style="display: block; margin-left: auto; margin-right: auto" src="{{techoImg}}">
+                                </div>
+                                <div class="row"> 
+                                    <p class="text-info text-center" style="font-size: 20px; color: f4bb18"><strong> Pared </strong></p>   
+                                    <img class="img-responsive img-circle" style="display: block; margin-left: auto; margin-right: auto" src="{{paredImg}}">
+                                </div>
+                                <div class="row"> 
+                                    <p class="text-info text-center" style="font-size: 20px; color: 4a494b"> <strong> Piso </strong></p>   
+                                    <img class="img-responsive img-circle" style="display: block; margin-left: auto; margin-right: auto" src="{{pisoImg}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div ng-if="resultadosMostrar" class="container-fluid">
+                        <p class="h1 text-center text-primary text-right col-sm-12" style="padding-top: 15px;">Resultado Simulación</p>
+                        <br>
+                        <table ng-table="vm.tableParams" class="table table-hover table-responsive" show-filter="true">
+                            <th>
+                                Region 
+                            </th>
+                            <th>
+                                Pared 
+                            </th>
+                            <th>
+                                Piso 
+                            </th>
+                            <th>
+                                Techo 
+                            </th>
+                            <th>
+                                Rango de Horas 
+                            </th>
+                            <th  class="hidden-xs">
+                                Variables 
+                            </th>
+                            <th  class="visible-xs">
+                                Var
+                            </th>
+                            <th>
+                                Valor 
+                            </th>
+                            <tr>
+                                <td title="Regi&aacute;n">
+                                    {{resultadosMostrar.region}}
+                                </td>
+                                <td title="Pared">
+                                    {{resultadosMostrar.pared}}
+                                </td>
+                                <td title="Piso">
+                                    {{resultadosMostrar.piso}}
+                                </td>
+                                <td title="Techo">
+                                    {{resultadosMostrar.techo}}
+                                </td>
+                                <td title="Rango de Hora">
+                                    {{resultadosMostrar.rangoHoras}}
+                                </td>                
+                                <td class="hidden-xs">
+                                    Temperatura Externa
+                                    <hr>
+                                    Temperatura Interior
+                                    <hr>
+                                    Consumo Sin Climatizaci&oacute;n
+                                    <hr>
+                                    Consumo Con Climatizaci&oacute;n
+                                </td>
+                                <td class="visible-xs">
+                                    TE
+                                    <hr>
+                                    TI
+                                    <hr>
+                                    sinC
+                                    <hr>
+                                    conC
+                                </td>
+                                <td title="Resultados">
+                                    {{resultadosMostrar.temperaturaExterna}} °C
+                                    <hr>
+                                    <b>{{resultadosMostrar.temperaturaInterior}} °C</b>
+                                    <hr>
+                                    {{resultadosMostrar.consumoSinClimatizacion}} KW
+                                    <hr>
+                                    <b>{{resultadosMostrar.consumoConClimatizacion}} KW</b>
+                                    <hr>
+                                </td>
+
+
+                            </tr>
+                        </table>
+                    </div>
+                    <div ng-if="!resultadosMostrar">
+                        <div class="col-sm-offset-8 col-xs-offset-2" style="padding-bottom: 45px; padding-top: 20px;">
+                            <button class="btn btn-danger col-sm-3" ng-click="wizard(0)">Reiniciar</button>
+                            <button class="btn btn-success col-sm-3 col-sm-offset-2" ng-click="simular()">Simular</button>
+                        </div>
+                    </div>
+                    <div ng-if="resultadosMostrar">
+                        <div class="col-sm-offset-8 col-xs-offset-4" style="padding-bottom: 35px; padding-top: 20px; padding-right: 10px;">
+                            <button class="btn btn-primary" ng-click="wizard(0)">Terminar</button>
+                            <button class="col-sm-offset-1 btn btn-primary" ng-click="wizard(7)">Ver Ganadores</button>
+                        </div>
+                        <div style="padding-bottom: 35px; padding-top: 20px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-when="7"> 
+                    <p class="h2 text-center text-primary">Listado de Ganadores</p>
+                    <div ng-if="ganadores" class="col-sm-12">
+                        <div class="container-fluid">
+                            <table ng-table="vm.tableParams" class="table table-hover table-bordered table-responsive" show-filter="true">
+                                <th>
+                                    Lugar
+                                </th>
+                                <th>
+                                    Nombre 
+                                </th>
+                                <th>
+                                    Ocupaci&oacute;n 
+                                </th>
+                                <th  class="hidden-xs">
+                                    Consumo con Climatizaci&oacute;n 
+                                </th>
+                                <th class="visible-xs">
+                                    CcC
+                                </th>
+                                <th  class="hidden-xs">
+                                    Temperatura Interior
+                                </th>
+                                <th class="visible-xs">
+                                    Temp
+                                </th>
+                                <th class="hidden-xs">
+                                    Fecha de Simulaci&oacute;n
+                                </th>
+                                <th  class="visible-xs">
+                                    Fecha
+                                </th>
+                                <tr ng-repeat="datos in notSorted(ganadores)" ng-init="valor = ganadores[datos]">
+                                    <td>
+                                        {{valor.numero}}
+                                    </td>
+                                    <td>
+                                        {{valor.nombre}}
+                                    </td>
+                                    <td>
+                                        {{valor.ocupacion}}
+                                    </td>
+                                    <td class="hidden-xs">
+                                        {{valor.consumoCC}}
+                                    </td>     
+                                    <td class="visible-xs">
+                                        {{valor.consumoCC}}
+                                    </td>  
+                                    <td class="hidden-xs">
+                                        {{valor.tempConClima}}
+                                    </td> 
+                                    <td class="visible-xs">
+                                        {{valor.tempConClima}}
+                                    </td> 
+                                    <td class="hidden-xs">
+                                        {{valor.hora}}
+                                    </td> 
+                                    <td  class="visible-xs">
+                                        {{valor.hora}}
+                                    </td> 
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-sm-offset-8 col-xs-offset-4" style="padding-bottom: 35px; padding-top: 20px; padding-right: 10px;">
+                            <button class="btn btn-primary" ng-click="wizard(0)">Terminar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-switch" ng-switch-default>default</div>
+                <div class="col-sm-offset-2 col-sm-9">
+                    <div ng-if="selection < 7" class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{completado}};">
+                            <span class="text-capitalize"> Progreso {{completado}}</span> 
+                        </div>
+                    </div>
+                    <div ng-if="selection > 0 && selection < 7">
+                        <div class="text-right ">Construyendo casa prototipo diseñada por <span class="text-info text-capitalize">{{nombreJugador}}</span> </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

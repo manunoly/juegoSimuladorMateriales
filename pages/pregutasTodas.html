@@ -1,0 +1,25 @@
+
+<div class="panel panel-default" style="margin-top: 2em;">
+    <div class="panel-heading"> <strong> Preguntas y Debates </strong> <i class="fa fa-comments pull-right" title="Preguntas"></i></div>
+    <div class="panel-body" ng-repeat="pregunta in preguntasEEE">
+
+        <!--        <div>
+                    <div ng-if="pregunta.foto != ' '">
+                        <img class="pull-left img-responsive" style="padding-right: 1em; " src="{{pregunta.foto}}">
+                    </div>
+                </div>-->
+        <div> 
+            <a href="#preguntas/{{pregunta.id}}" class="text-center text-nowrap" ng-bind-html="pregunta.descripcion"></a>
+            <span class="text-info pull-right" style="padding-right: 4em;">{{pregunta.autor}} <label class="label label-primary"> Autor </label></span>
+            <br>
+            <span class="text-success pull-right" style="padding-right: 4em;">  {{pregunta.votos}} <label class="label label-success"> Votos </label></span>
+            <br>
+            <span class="text-success pull-right" style="padding-right: 4em;"> 0 {{pregunta.comentarios}} <label class="label label-danger">Comentarios</label> </span>
+            <br>
+
+
+        </div>
+
+        <hr>
+    </div>
+</div>

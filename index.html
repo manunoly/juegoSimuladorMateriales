@@ -1,0 +1,74 @@
+<html ng-app="edificaciones" ng-strict-di>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>INER - Eficiencia Energ&eacute;tica en Edificaciones</title>
+        <!-- SCROLLS -->
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <!--<link rel="stylesheet" href="css/font-awesome.css" />-->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+    </head>
+    <body ng-controller="mainController">
+        <!--<div class="hidden-xs" style="padding-top: 5px;"></div>-->
+            <img class="container-fluid img-rounded hidden-sm hidden-xs" style="height: 240px; width: 100%; padding-left: 0px; padding-right: 0px;" src="img/logo.jpg">
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default" style="margin-bottom: 2em; ">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand hidden-xs hidden-sm" href="#">INER - Edificaciones</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><i class="fa fa-home" title="Inicio"></i> Inicio</a></li>
+                        <li><a href="#edificaciones"><i class="fa fa-shield" title="Eficiencia Energ&eacute;tica"></i> Eficiencia Energ&eacute;tica</a></li>
+                        <!--<li><a href="#preguntas"><i class="fa fa-comment" title="Preguntas y Debates"></i> Preguntas y Debates </a></li>-->
+                        <li><a href="#juego"><i class="fa fa-gamepad" title="Juego Eficiencia Energ&eacute;tica en Edificaciones"></i> Juego EEE </a></li>
+                        <li><a href="#aplicaciones"><i class="fa fa-gamepad" title="Aplicaciones"></i> Aplicaciones </a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="principal" class="container-fluid" style="padding-left: 5%; ">
+            <div id="main" class="col-md-12">
+                <div ng-view></div>
+            </div>
+
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+
+        </div>
+        <footer class="container-fluid navbar-fixed-bottom" style="padding-top: 10px;">
+            <div class="row">
+                <div class="container">
+                    <div class="pull-right">
+                        &copy; <a href="http://www.iner.gob.ec/" target="_blank">INER-Proyecto Edificaciones</a>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+        <!-- SPELLS -->
+        <!-- load angular and angular route via CDN -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.js"></script>
+        <script src="js/angular-animate.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/main.js"></script>
+        <script src="pages/juego/juego.js"></script>
+        <script src='js/textAngular-sanitize.min.js'></script>
+        <script src="js/textAngular.min.js"></script>
+        <script src="js/controler/home.js"></script>
+        <script src="js/controler/edificaciones.js"></script>
+        <!--<script src="js/controler/preguntas.js"></script>-->
+        <script src="js/controler/aplicaciones.js"></script>
+        <script src="js/controler/equipoController.js"></script>
+        <script src="js/controler/articuloEscribir.js"></script>
+
+    </body>
+</html>

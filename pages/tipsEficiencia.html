@@ -1,0 +1,13 @@
+
+<div class="panel panel-default" style="margin-top: 2em;">
+    <div class="panel-heading"><strong>Eficiencia Energ&eacute;tica en Edificaciones</strong> <i class="fa fa-bolt pull-right" title="Eficiencia Energ&eacute;tica en Edificaciones"></i> </div> 
+    <div class="panel-body" ng-repeat="consejoEEE in consejosEEE | limitTo:3">
+
+        <div class="row" style="margin-left: 0em;">
+            <div ng-if="consejoEEE.foto != ' '"><img class="pull-left img-responsive" style="padding-right: 1em; max-width:150px; max-height:130px;" src="{{consejoEEE.foto}}" alt="{{consejoEEE.titulo}}"></div>
+            
+            <p class="text-justify" style="padding-right: 1em;"> <a href="#edificaciones/{{consejoEEE.id}}" class="text-capitalize"> {{consejoEEE.titulo}}</a> <span ng-bind-html="consejoEEE.descripcion | limitTo: 120">...</span> </p>
+        </div>
+        <div ng-if="$last"><a href="#edificaciones" class="pull-right fa fa-arrow-circle-o-right">Ver Todos</a></div>
+    </div>
+</div>

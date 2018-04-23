@@ -1,0 +1,19 @@
+<!-- equipo.html -->
+<div>
+    <div class="panel panel-default col-md-9 text-justify" style="margin-top: 2em;">
+        <div class="panel-heading "><strong>Equipo de Trabajo del Proyecto Eficiencia Energ&eacute;tica en Edificaciones</strong></div>
+        <div class="row"><img class="img-responsive col-md-9 col-md-offset-1" style="padding-top: 2em" src="img/cv/equipo_edificaciones.jpg"> </div>
+        <div class="row text-center text-capitalize text-info" style="padding-bottom: 5em">Nuestro Equipo de trabajo</div>
+        <div class="panel-body col-md-offset-1"  ng-repeat="miembro in equipo">
+
+            <div class="row">
+                <img class="pull-left col-sm-3 col-md-2 col-lg-2" src="{{miembro.foto}}" alt="{{miembro.nombre}}">
+                <p class="col-sm-9" style="padding-right: 1em;"> <a ng-href="#/equipo/{{miembro.id}}"> {{ miembro.nombre}}</a><br> <span ng-bind-html="miembro.descripcion"></span> </p>
+            </div>
+        </div>
+    </div>
+    <div id="lateral" class="col-md-3" ng-model="lateral">
+        <div ng-include src="'pages/tipsEficiencia.html'"></div>
+        <!--<div ng-include src="'pages/pregunta.html'"></div>-->
+    </div>
+</div>
