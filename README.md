@@ -1,2 +1,2 @@
-# juegoSimuladorMateriales, construsctor materail simulator
+# juegoSimuladorMateriales, construstion material simulator
 php, angularjs, spa, mysql, simple simulator
